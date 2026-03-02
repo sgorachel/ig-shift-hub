@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ig-berry: #7B2D8B;
+  --color-ig-berry-light: #9340a5;
+  --color-ig-teal: #2DBFB3;
+  --color-ig-teal-dark: #229990;
+  --color-ig-orange: #F5924E;
+  --color-ig-dark: #1A1A2E;
+  --color-ig-bg: #F9F6FB;
+  --color-ig-rose: #F0E8F5;
+  --color-ig-text: #1A1A2E;
+  --color-ig-text-muted: #666666;
+  --color-ig-green: #2ECC71;
+  --color-ig-coral: #E74C3C;
+  --color-ig-gold: #F1C40F;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ig-bg);
+  color: var(--color-ig-text);
+}
+
+h1, h2 {
+  font-family: var(--font-display);
+}
+
+/* ── Likert / Rating slider ── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-ig-berry);
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(123, 45, 139, 0.3);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 10px rgba(123, 45, 139, 0.4);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-ig-berry);
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(123, 45, 139, 0.3);
+  cursor: pointer;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.fade-in   { animation: fadeIn  0.35s ease both; }
+.slide-in  { animation: slideIn 0.3s ease both; }
