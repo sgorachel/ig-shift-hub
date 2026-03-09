@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import Header from './shared/Header';
+import Footer from './shared/Footer';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import AiAssessment from './assessments/ai/AiAssessment';
@@ -27,10 +28,11 @@ export default function App() {
   if (loading) return <LoadingScreen />;
 
   return (
-    <div className="min-h-screen bg-ig-bg">
+    <div className="min-h-screen bg-ig-bg flex flex-col">
       {/* Only show header on protected routes */}
       {user && <Header user={user} />}
 
+      <div className="flex-1">
       <Routes>
         {/* Public */}
         <Route
@@ -75,6 +77,8 @@ export default function App() {
         {/* Default redirect */}
         <Route path="*" element={<Navigate to={user ? '/dashboard' : '/login'} replace />} />
       </Routes>
+      </div>
+      <Footer />
     </div>
   );
 }

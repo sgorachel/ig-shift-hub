@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Clock } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { getTierKey as aiTierKey, getTierLabel as aiTierLabel, TIER_STYLES as AI_STYLES } from '../assessments/ai/data';
 import { getTierKey as changeTierKey, getTierLabel as changeTierLabel, TIER_STYLES as CHANGE_STYLES } from '../assessments/change/data';
@@ -145,11 +145,14 @@ export default function DashboardPage({ user }) {
       {/* Welcome */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-ig-text mb-2">Your SHIFT Readiness Dashboard</h1>
+        <p className="text-ig-text-muted mb-3">
+          These three assessments are designed to work together. Each one surfaces a different dimension of your organization's readiness — for ethical technology, for change, and for equity. Together, they give you a comprehensive picture.
+        </p>
         <p className="text-ig-text-muted">
           {loading
             ? 'Loading your results…'
             : completedCount === 0
-            ? 'Start any assessment below to build your organizational readiness picture.'
+            ? 'Start any assessment below to get started.'
             : completedCount === ASSESSMENTS.length
             ? `All ${ASSESSMENTS.length} assessments complete. You can retake any of them from the results page.`
             : `${completedCount} of ${ASSESSMENTS.length} assessments complete.`
@@ -185,21 +188,6 @@ export default function DashboardPage({ user }) {
         ))}
       </div>
 
-      {/* What is SHIFT */}
-      <div className="bg-white rounded-2xl border border-ig-rose shadow-sm p-6">
-        <h2 className="font-bold text-ig-text mb-2">About the SHIFT Readiness Suite</h2>
-        <p className="text-sm text-ig-text-muted leading-relaxed mb-4">
-          These three assessments are designed to work together. Each one surfaces a different dimension of your organization's readiness — for ethical technology, for change, and for equity. Together, they give you a comprehensive picture.
-        </p>
-        <a
-          href="https://inclusiongeeks.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-ig-berry hover:underline"
-        >
-          Learn about Inclusion Geeks <ArrowRight size={12} />
-        </a>
-      </div>
     </div>
   );
 }
