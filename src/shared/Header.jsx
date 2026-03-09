@@ -21,13 +21,13 @@ export default function Header({ user }) {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-ig-rose shadow-sm">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
         {/* Logo */}
-        <Link to="/dashboard" className="shrink-0">
+        <a href="https://inclusiongeeks.com" target="_blank" rel="noopener noreferrer" className="shrink-0">
           <img
             src="https://www.inclusiongeeks.com/wp-content/uploads/2024/08/iglogo-header-berry3.png"
             alt="Inclusion Geeks"
             className="h-7"
           />
-        </Link>
+        </a>
 
         {/* Nav (hidden on mobile) */}
         <nav className="hidden md:flex items-center gap-1">
